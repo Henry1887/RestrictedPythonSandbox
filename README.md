@@ -6,14 +6,6 @@ An implementation of RestrictedPython focused on file system isolation and neste
 - Enforce permission-based file system isolation.
 - Support for nested sandboxing, including inherited and restrictive nested permissions.
 
-# Usage Example
-
-spawn_sandboxed_python("""
-display("This will fail")
-with open("very_secret_folder/homework/browser_history.txt", "r") as File:
-  display(File.read())
-""", False, {}, dir_permissions={"untrusted_code_folder": "rw"}, file_permissions={}, open)
-
 # Key Details
 Default Folder Permissions: If not specified, access is denied.
 Default File Permissions: If not specified, files follow the permissions of their parent folder.
